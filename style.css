@@ -7,6 +7,10 @@ Author: Rati Shoshikelashvili
 Author URI: https://github.com/shoshikelashvili
 */
 
+@import url(db.onlinewebfonts.com/c/924ee4158324c02e3e0d62e54cafd14f?family=Gotham+Book);
+
+@font-face {font-family: "Gotham Book"; src: url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.eot"); src: url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.woff") format("woff"), url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.svg#Gotham Book") format("svg"); }
+
 body{
     margin: 0;
 }
@@ -22,7 +26,7 @@ header{
 }
 
 #logo{
-    background-color:yellow;
+    /* background-color:yellow; */
     height: 100%;
     width: 30%;
     display: flex;
@@ -36,9 +40,37 @@ header{
 
 
 #menus{
-    background-color:green;
+    /* background-color:green; */
     height: 100%;
     width: 70%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+#menus .navbar.navbar-expand-lg.navbar-light{
+    width:100%;
+}
+
+.menu-top-menu-container{
+    width:100%;
+}
+
+#menu-top-menu{
+    justify-content: flex-end;
+    margin-right: 5rem;
+}
+
+#menu-top-menu li{
+    margin-right: 4rem;
+    font-family: "Gotham Book";
+    
+}
+
+#menu-top-menu li a{
+    color: #ee2255;
+    text-decoration: none;
 }
 
 
@@ -51,4 +83,29 @@ header{
 .test{
     color:red;
     
+}
+
+@media(max-width: 991px){
+    nav .container{
+        justify-content: flex-end !important;
+    }
+
+    #logo{
+        width:100%;
+        justify-content: flex-end;
+    }
+
+    #menu-top-menu li{
+        margin-right: 0rem;
+        font-family: "Gotham Book";
+        
+    }
+
+    /* button .navbar-toggler{
+        background-color: rgba(243, 234, 239, 0.31)
+    } */
+
+    #menu-top-menu{
+        background-color: rgba(0, 0, 0, 0.7)
+    }
 }
