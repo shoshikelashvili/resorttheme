@@ -91,7 +91,7 @@ header{
     }
 
     #logo{
-        width:100%;
+        width:50%;
         justify-content: flex-end;
     }
 
@@ -105,7 +105,26 @@ header{
         background-color: rgba(243, 234, 239, 0.31)
     } */
 
-    #menu-top-menu{
-        background-color: rgba(0, 0, 0, 0.7)
+    .menu-top-menu-container{
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 7em;
+        margin-left: auto;
+        margin-right: 0;
     }
+
+    .navbar-toggler
+    {
+        margin-bottom: 5px;
+    }
+
+    .navbar.navbar-expand-lg.navbar-light
+    {
+        display: block;
+        top: 2rem;
+    }
+
+    /* .navbar{
+        display: block;
+        top: 2rem;
+    } */
 }
