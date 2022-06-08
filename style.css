@@ -8,8 +8,14 @@ Author URI: https://github.com/shoshikelashvili
 */
 
 @import url(db.onlinewebfonts.com/c/924ee4158324c02e3e0d62e54cafd14f?family=Gotham+Book);
+@import url(//db.onlinewebfonts.com/c/84693c6ac1f359fe8a4ac49b69f492dd?family=Gotham+Light);
+@import url(//db.onlinewebfonts.com/c/db33e70bc9dee9fa9ae9737ad83d77ba?family=Gotham);
+
 
 @font-face {font-family: "Gotham Book"; src: url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.eot"); src: url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.woff") format("woff"), url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/924ee4158324c02e3e0d62e54cafd14f.svg#Gotham Book") format("svg"); }
+@font-face {font-family: "Gotham Light"; src: url("//db.onlinewebfonts.com/t/84693c6ac1f359fe8a4ac49b69f492dd.eot"); src: url("//db.onlinewebfonts.com/t/84693c6ac1f359fe8a4ac49b69f492dd.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/84693c6ac1f359fe8a4ac49b69f492dd.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/84693c6ac1f359fe8a4ac49b69f492dd.woff") format("woff"), url("//db.onlinewebfonts.com/t/84693c6ac1f359fe8a4ac49b69f492dd.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/84693c6ac1f359fe8a4ac49b69f492dd.svg#Gotham Light") format("svg"); }
+@font-face {font-family: "Gotham"; src: url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.eot"); src: url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.woff") format("woff"), url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.svg#Gotham") format("svg"); }
+
 
 body{
     margin: 0;
@@ -65,7 +71,7 @@ header{
 #menu-top-menu li{
     margin-right: 4rem;
     font-family: "Gotham Book";
-    
+    font-weight: bold;
 }
 
 #menu-top-menu li a{
@@ -75,15 +81,68 @@ header{
 
 
 #main{
-    background-color:black;
-    height: 3000px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-
-.test{
-    color:red;
-    
+.hero-container{
+    height: 100%;
 }
+
+.slick-slide img{
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.card{
+    border: 0px !important;
+}
+
+.card-title{
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    font-size: 4vw;
+    transform: translate(-50%, -50%);
+    font-family: "Gotham Light";
+    text-transform: uppercase;
+    color:white;
+    text-align: center;
+}
+
+.card-title strong{
+        font-weight: bold;
+        font-family: "Gotham";
+}
+
+.card-more{
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    font-size: 2vw;
+    transform: translate(-50%, -50%);
+    font-family: "Gotham Light";
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+}
+
+.slick-slide { -webkit-transform: translate3d(0,0,0); }
+
+@media(max-width:1200px){
+    .card-title{
+        width: 50rem;
+        font-size: 6vw;
+    }
+
+    .card-more{
+        font-size: 4vw;
+    }
+}
+
 
 @media(max-width: 991px){
     nav .container{
@@ -121,10 +180,72 @@ header{
     {
         display: block;
         top: 2rem;
+        height: 5rem;
+    }
+
+    #navbarNav{
+        z-index: 5;
     }
 
     /* .navbar{
         display: block;
         top: 2rem;
     } */
+}
+
+@media(max-width:900px){
+    .card-title{
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        width: 45rem;
+        font-size: 4rem;
+        transform: translate(-50%, -50%);
+        font-family: "Gotham Light";
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .card-more{
+        font-size: 3vw;
+    }
+}
+
+@media(max-width:720px){
+    .card-title{
+        width: 35rem;
+        font-size: 3rem;
+    }
+
+    .card-more{
+        font-size: 4vw;
+        width: 24rem;
+    }
+}
+
+@media(max-width:530px){
+    .card-title{
+        width: 24rem;
+        font-size: 2rem;
+    }
+
+    .card-more{
+        font-size: 4vw;
+        width: 24rem;
+    }
+
+    #logo{
+        width:100%;
+    }
+
+    .container{
+        width: 42vw;
+        font-size: 0.8em;
+    }
+}
+
+@media(max-width:400px){
+    .container{
+        font-size: 0.5em;
+    }
 }
