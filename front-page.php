@@ -68,6 +68,55 @@
         </div>
     </div>
 </div>
+<div id="islands">
+    <div class="islands-title"><strong>Discover</strong> Tahiti</div>
+    <div class="card-group">
+        <div class="card">
+            <img src="<?php echo get_template_directory_uri(); ?>\assets\images\discover.png" class="card-img-top" alt="tahiti">
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <div class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div>
+            </div>
+            <div class="card-footer">
+                <div class="text-unmuted">FROM <strong>$2,500</strong></div>
+                <img src="<?php echo get_template_directory_uri(); ?>\assets\images\rectangle.png" class="footer-img" alt="arrow">
+            </div>
+        </div>
+        <div class="card">
+        <img src="<?php echo get_template_directory_uri(); ?>\assets\images\discover.png" class="card-img-top" alt="tahiti">
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+                <div class="text-unmuted">FROM <strong>$2,500</strong></div>
+                <img src="<?php echo get_template_directory_uri(); ?>\assets\images\rectangle.png" class="footer-img" alt="arrow">
+            </div>
+        </div>
+        <div class="card">
+            <img src="<?php echo get_template_directory_uri(); ?>\assets\images\discover.png" class="card-img-top" alt="tahiti">
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <div class="card-footer">
+                <div class="text-unmuted">FROM <strong>$2,500</strong></div>
+                <img src="<?php echo get_template_directory_uri(); ?>\assets\images\rectangle.png" class="footer-img" alt="arrow">
+            </div>
+        </div>
+        <div class="card">
+            <img src="<?php echo get_template_directory_uri(); ?>\assets\images\discover.png" class="card-img-top" alt="tahiti">
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <div class="card-footer">
+                <div class="text-unmuted">FROM <strong>$2,500</strong></div>
+                <img src="<?php echo get_template_directory_uri(); ?>\assets\images\rectangle.png" class="footer-img" alt="arrow">
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <?php
