@@ -132,6 +132,60 @@ header{
 
 .slick-slide { -webkit-transform: translate3d(0,0,0); }
 
+#infographic{
+    height: 72vh;
+}
+
+.info-card{
+    padding: 2rem;
+    /* width: 3em; */
+    /* width: 24em; */
+    text-align: center;
+}
+
+.info-title{
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 5.5rem;
+    color: #FF5D35;
+    font-family: 'Gotham Book';
+    margin-bottom: 1.5rem;
+}
+
+.info-title strong{
+    font-family: 'Gotham';
+}
+
+.info-data{
+    width: 35rem;
+    margin: auto;
+    font-family: 'Gotham Book';
+    font-size: 1.5em;
+}
+
+.info-data a{
+    color: #FF5D35;
+}
+
+.info-image{
+    max-width: 100%;
+    height: auto;
+}
+
+.info-image-container{
+    max-width: 9em;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+.info-description{
+    margin-bottom: 0.7rem;
+}
+
+.info-link{
+    font-family: 'Gotham';
+}
+
 @media(max-width:1200px){
     .card-title{
         width: 50rem;
@@ -220,6 +274,12 @@ header{
     .card-more{
         font-size: 4vw;
         width: 24rem;
+    }
+}
+
+@media(max-width:650px){
+    .info-data{
+        width: 17rem;
     }
 }
 
