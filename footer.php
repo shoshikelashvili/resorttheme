@@ -1,9 +1,9 @@
 <div id="footer">
     <div id="bottom-navigation">
         <div id="bottom-logo">
-            <img src="<?php echo get_template_directory_uri();; ?>\assets\images\logo.png"></img>
+            <img src="<?php echo get_template_directory_uri();; ?>/assets/images/logo.png" alt="logo">
         </div>
-        <div id="menus">
+        <div id="bottom-menus">
             <nav class="navbar navbar-expand-lg navbar-light"> 
                 <div class="container"> 
                         <?php
