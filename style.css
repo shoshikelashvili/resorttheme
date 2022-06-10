@@ -17,8 +17,20 @@ Author URI: https://github.com/shoshikelashvili
 @font-face {font-family: "Gotham"; src: url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.eot"); src: url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.woff") format("woff"), url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/db33e70bc9dee9fa9ae9737ad83d77ba.svg#Gotham") format("svg"); }
 
 
+html, body {
+    height: 100%
+}
+
 body{
     margin: 0;
+}
+
+.slick-list.draggable{
+    height: 100%;
+}
+
+.slick-track{
+    height: 100%;
 }
 
 header{
