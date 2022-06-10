@@ -218,12 +218,14 @@ header{
 }
 
 #islands .card-text{
-    height: 4.5rem;
+    height: 5rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: 'Gotham Light';
+    font-size: 1.1rem;
 }
 
 #islands .card-footer{
@@ -252,6 +254,62 @@ header{
     font-size: 1.6rem;
 }
 
+
+#footer{
+    height: 14rem;
+}
+
+#bottom-navigation{
+    display: flex;
+    justify-content: center;
+    margin-top: 4em;
+}
+
+#menu-bottom-menu{
+    justify-content: space-around;
+}
+
+#bottom-navigation #menu-bottom-menu{
+    width:100%;
+}
+
+#bottom-navigation #navbarNav{
+    justify-content: center;
+}
+
+#bottom-navigation .menu-bottom-menu-container{
+    width:100%;
+}
+
+#bottom-navigation a{
+    color: #ee2255;
+    text-decoration: none;
+    font-family: 'Gotham';
+}
+
+#bottom-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bottom-logo img{
+    height: 3.6em;
+}
+
+#footer .navbar-nav{
+    flex-direction: row;
+}
+
+#copyright{
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gotham';
+}
+
+
 @media(max-width:1200px){
     #main .card-title{
         width: 50rem;
@@ -262,48 +320,48 @@ header{
         font-size: 4vw;
     }
 
-    #menus .container{
+    #main #menus .container{
         font-size: 1rem;
     }
 }
 
 
 @media(max-width: 991px){
-    nav .container{
+    #main nav .container{
         justify-content: flex-end !important;
     }
 
-    #logo{
+    #main #logo{
         width:50%;
         justify-content: flex-end;
     }
 
-    #menu-top-menu li{
+    #main #menu-top-menu li{
         margin-right: 0rem;
         font-family: "Gotham Book";
         
     }
 
-    .menu-top-menu-container{
+    #main .menu-top-menu-container{
         background-color: rgba(0, 0, 0, 0.7);
         width: 7em;
         margin-left: auto;
         margin-right: 0;
     }
 
-    .navbar-toggler
+    #main .navbar-toggler
     {
         margin-bottom: 5px;
     }
 
-    .navbar.navbar-expand-lg.navbar-light
+    #main .navbar.navbar-expand-lg.navbar-light
     {
         display: block;
         top: 2rem;
         height: 5rem;
     }
 
-    #navbarNav{
+    #main #navbarNav{
         z-index: 5;
     }
 }
@@ -366,6 +424,19 @@ header{
     .info-data{
         width: 17rem;
     }
+
+    #footer #menu-bottom-menu{
+        flex-direction: column;
+        align-items: center;
+    }
+   
+    #bottom-navigation{
+        justify-content: center;
+    }
+
+    #footer #menus{
+        width: 44%;
+    }
 }
 
 @media(max-width:530px){
@@ -379,19 +450,39 @@ header{
         width: 24rem;
     }
 
+    #main #logo img{
+        height: 2em;
+    }
+
+    #footer #bottom-logo img{
+        height: 2em;
+    }
+
+    #footer a{
+        font-size: 1rem;
+    }
+
     #logo{
         width:100%;
     }
 
-    .container{
+    #main .container{
         width: 42vw;
         font-size: 0.8em;
     }
 }
 
 @media(max-width:400px){
-    .container{
+    #main .container{
         font-size: 0.5em;
+    }
+
+    #footer #bottom-logo img{
+        height: 2.6em;
+    }
+
+    #footer .container{
+        font-size: 1.1rem;
     }
 }
 
@@ -414,16 +505,22 @@ header{
         font-size: 2rem;
     }
 
-    #logo img{
+    #main #logo img{
         height: 2em;
     }
 
-    #logo{
+    #main #logo{
         justify-content: flex-start;
     }
 
     .info-data{
         width: 14rem;
+    }
+}
+
+@media(max-width:300px){
+    #footer #bottom-logo img{
+        height: 1.8em;
     }
 }
 
