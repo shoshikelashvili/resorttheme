@@ -1,28 +1,39 @@
 <?php
     get_header();
+
+    class slider{
+        public $title;
+        public $description;
+        public $image;
+        public $image_title;
+    }
+
+    $sliders = array();
+
+    $slider_posts = get_posts( array('post_type' => 'slider', 'order' => 'ASC'));
+    foreach($slider_posts as $post)
+    {
+        $slider = new slider();
+        $slider->title = $post->post_title;
+        $slider->description = $post->post_content;
+        $slider->image = get_the_post_thumbnail_url($post->ID);
+        $slider->image_title = get_post(get_post_thumbnail_id($post->ID))->post_title;
+
+        array_push($sliders, $slider);
+    }
 ?>
 
     <div class="hero-container">
-        <!--Slide One-->
-        <div class="card">
-            <img src="<?php echo get_template_directory_uri();; ?>/assets/images/tahiti.png" class="hero-image" alt="tahiti">
-            <div class="card-title"><strong>WELCOME</strong> TO TAHITI</div>
-            <div class="card-more">Your vacation starts here</div>
-        </div>
-        <!--Slide Two-->
-        <div class="card">
-            <img src="<?php echo get_template_directory_uri();; ?>/assets/images/tahiti-2.png" class="hero-image" alt="tahiti">
-            <div class="card-title"><strong>Title</strong> Text</div>
-            <div class="card-more">Additional Text</div>
-        </div>
-        <!--Slide Three-->
-        <div class="card">
-            <img src="<?php echo get_template_directory_uri();; ?>/assets/images/tahiti-3.png" class="hero-image" alt="tahiti">
-            <div class="card-title"><strong>Title</strong> Text</div>
-            <div class="card-more">Additional Text</div>
-        </div>
+        <?php foreach($sliders as $slider): ?>
+            <div class="card">
+                <img src='<?php echo $slider->image ?>' class='hero-image' alt='<?php echo $slider->image_title ?>'>
+                <div class='card-title'><?php echo $slider->title ?></div>
+                <div class='card-more'><?php echo $slider->description ?></div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
+
 <div id="infographic">
     <div class="info-title"><strong>WHY</strong> TAHITI?</div>
     <div class="info-container">
