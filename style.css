@@ -263,6 +263,12 @@ header{
     width: 1.6rem;
 }
 
+#islands .card-footer a{
+    margin: auto;
+    margin-right: 1rem;
+    width: 1.6rem;
+}
+
 .text-unmuted{
     color: white;
     font-family: 'Gotham Light';

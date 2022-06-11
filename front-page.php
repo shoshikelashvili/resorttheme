@@ -38,14 +38,16 @@
         public $description;
         public $price;
         public $image_title;
+        public $link;
 
-        function __construct($image, $description, $title, $price, $image_title)
+        function __construct($image, $description, $title, $price, $image_title, $link)
         {
             $this->image = $image;
             $this->description = $description;
             $this->title = $title;
             $this->price = $price;
             $this->image_title = $image_title;
+            $this->link = $link;
         }
     }
 
@@ -83,7 +85,8 @@
             $post->post_content, 
             $post->post_title, 
             get_field('price',$post->ID), 
-            get_post(get_post_thumbnail_id($post->ID))->post_title);
+            get_post(get_post_thumbnail_id($post->ID))->post_title,
+            get_field('link',$post->ID), );
         
         array_push($islands,$island);
     }
@@ -114,6 +117,7 @@
             </div>
         </div>
         <?php endforeach; ?>
+    </div>
 </div>
 
 <div id="islands">
@@ -128,13 +132,14 @@
                 </div>
                 <div class="card-footer">
                     <div class="text-unmuted">FROM <strong>$<?php echo number_format($island->price) ?></strong></div>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle.png" class="footer-img" alt="arrow">
+                    <a target="_blank" href="<?php echo $island->link ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle.png" class="footer-img" alt="arrow">
+                    </a>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
-
 
 <?php
     get_footer();
