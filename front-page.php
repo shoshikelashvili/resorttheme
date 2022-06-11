@@ -1,25 +1,58 @@
 <?php
     get_header();
-
+    
+    $current_page_id = get_the_ID();
+    
     class slider{
         public $title;
         public $description;
         public $image;
         public $image_title;
+
+        function __construct($title, $description, $image, $image_title) {
+            $this->title = $title;
+            $this->description = $description;
+            $this->image = $image;
+            $this->image_title = $image_title;
+        }
     }
 
-    $sliders = array();
+    class infographic{
+        public $image;
+        public $description;
+        public $link;
+        public $image_title;
 
+        function __construct($image, $description, $link, $image_title)
+        {
+            $this->image = $image;
+            $this->description = $description;
+            $this->link = $link;
+            $this->image_title = $image_title;
+        }
+    }
+
+    //Construct sliders array
+    $sliders = array();
     $slider_posts = get_posts( array('post_type' => 'slider', 'order' => 'ASC'));
+
     foreach($slider_posts as $post)
     {
-        $slider = new slider();
-        $slider->title = $post->post_title;
-        $slider->description = $post->post_content;
-        $slider->image = get_the_post_thumbnail_url($post->ID);
-        $slider->image_title = get_post(get_post_thumbnail_id($post->ID))->post_title;
-
+        $slider = new slider($post->post_title, $post->post_content, get_the_post_thumbnail_url($post->ID), get_post(get_post_thumbnail_id($post->ID))->post_title);
         array_push($sliders, $slider);
+    }
+    
+    //Construct infographics array
+    $infographics = array();
+
+    if(have_rows('infographic', $current_page_id))
+    {
+        while( have_rows('infographic', $current_page_id) )
+        {
+            $row = the_row();
+            $infographic = new infographic(get_sub_field('image')['url'], get_sub_field('description'), get_sub_field('link'), get_sub_field('image')['title']);
+            array_push($infographics, $infographic);
+        };
     }
 ?>
 
@@ -37,48 +70,19 @@
 <div id="infographic">
     <div class="info-title"><strong>WHY</strong> TAHITI?</div>
     <div class="info-container">
-        <!--Slide One-->
+        <?php foreach($infographics as $infographic): ?>
         <div class="info-card">
             <div class="info-data">
                 <div class="info-image-container">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tahiti.png" class="info-image" alt="tahiti">
+                    <img src="<?php echo $infographic->image ?>" class="info-image" alt="<?php echo $infographic->image_title ?>">
                 </div>
-                <div class="info-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan molestie sollicitudin nibh, nec iaculis est luctus ist amet.</div>
-                <a class="info-link" href="google.com">Learn More</a>
+                <div class="info-description"><?php echo $infographic->description ?></div>
+                <a class="info-link" href="<?php echo $infographic->link?>">Learn More</a>
             </div>
         </div>
-        <!--Slide Two-->
-        <div class="info-card">
-            <div class="info-data">
-                <div class="info-image-container">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tahiti.png" class="info-image" alt="tahiti">
-                </div>
-                <div class="info-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan molestie sollicitudin nibh, nec iaculis est luctus ist amet.</div>
-                <a class="info-link" href="google.com">Learn More</a>
-            </div>
-        </div>
-        <!--Slide Three-->
-        <div class="info-card">
-            <div class="info-data">
-                <div class="info-image-container">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tahiti.png" class="info-image" alt="tahiti">
-                </div>
-                <div class="info-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan molestie sollicitudin nibh, nec iaculis est luctus ist amet.</div>
-                <a class="info-link" href="google.com">Learn More</a>
-            </div>
-        </div>
-        <!--Slide Four-->
-        <div class="info-card">
-            <div class="info-data">
-                <div class="info-image-container">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tahiti.png" class="info-image" alt="tahiti">
-                </div>
-                <div class="info-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan molestie sollicitudin nibh, nec iaculis est luctus ist amet.</div>
-                <a class="info-link" href="google.com">Learn More</a>
-            </div>
-        </div>
-    </div>
+        <?php endforeach; ?>
 </div>
+
 <div id="islands">
     <div class="islands-title"><strong>Discover</strong> Tahiti</div>
     <div class="card-group">
