@@ -32,6 +32,23 @@
         }
     }
 
+    class island{
+        public $image;
+        public $title;
+        public $description;
+        public $price;
+        public $image_title;
+
+        function __construct($image, $description, $title, $price, $image_title)
+        {
+            $this->image = $image;
+            $this->description = $description;
+            $this->title = $title;
+            $this->price = $price;
+            $this->image_title = $image_title;
+        }
+    }
+
     //Construct sliders array
     $sliders = array();
     $slider_posts = get_posts( array('post_type' => 'slider', 'order' => 'ASC'));
@@ -51,8 +68,24 @@
         {
             $row = the_row();
             $infographic = new infographic(get_sub_field('image')['url'], get_sub_field('description'), get_sub_field('link'), get_sub_field('image')['title']);
+            
             array_push($infographics, $infographic);
         };
+    }
+
+    //Construct islands array
+    $islands = array();
+    $island_posts = get_posts( array('post_type' => 'island', 'numberposts' => 4));
+    foreach($island_posts as $post)
+    {
+        $island = new island(
+            get_the_post_thumbnail_url($post->ID), 
+            $post->post_content, 
+            $post->post_title, 
+            get_field('price',$post->ID), 
+            get_post(get_post_thumbnail_id($post->ID))->post_title);
+        
+        array_push($islands,$island);
     }
 ?>
 
@@ -86,50 +119,19 @@
 <div id="islands">
     <div class="islands-title"><strong>Discover</strong> Tahiti</div>
     <div class="card-group">
-        <div class="card">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/discover.png" class="card-img-top" alt="tahiti">
-            <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <div class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div>
+        <?php foreach($islands as $island): ?>
+            <div class="card">
+                <img src="<?php echo $island->image ?>" class="card-img-top" alt="<?php echo $island->image_title ?>">
+                <div class="card-body">
+                <h5 class="card-title"><?php echo $island->title ?></h5>
+                <div class="card-text"><?php echo $island->description ?></div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-unmuted">FROM <strong>$<?php echo number_format($island->price) ?></strong></div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle.png" class="footer-img" alt="arrow">
+                </div>
             </div>
-            <div class="card-footer">
-                <div class="text-unmuted">FROM <strong>$2,500</strong></div>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle.png" class="footer-img" alt="arrow">
-            </div>
-        </div>
-        <div class="card">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/discover.png" class="card-img-top" alt="tahiti">
-            <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-                <div class="text-unmuted">FROM <strong>$2,500</strong></div>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle.png" class="footer-img" alt="arrow">
-            </div>
-        </div>
-        <div class="card">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/discover.png" class="card-img-top" alt="tahiti">
-            <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <div class="text-unmuted">FROM <strong>$2,500</strong></div>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle.png" class="footer-img" alt="arrow">
-            </div>
-        </div>
-        <div class="card">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/discover.png" class="card-img-top" alt="tahiti">
-            <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <div class="text-unmuted">FROM <strong>$2,500</strong></div>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle.png" class="footer-img" alt="arrow">
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>
 
